@@ -12,7 +12,7 @@ from sqlmodel import Session, select
 
 from app.config import settings
 from app.models import AiComment, Response, Survey
-from app.security import ai_comment_limiter
+from app.rate_limit import ai_comment_limiter
 from app.services import ai_comment
 from app.services.ai_comment import FALLBACK_BETA, PICK_COUNT, build_prompt_payload
 from app.services.persona import determine_persona, load_personas, persona_of

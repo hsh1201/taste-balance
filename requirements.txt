@@ -5,6 +5,7 @@ sqlmodel==0.0.48
 python-multipart==0.0.33
 pydantic-settings==2.16.2
 anthropic==2.5.0
+psycopg[binary]==3.3.8
 
 # 테스트
 pytest==9.2.0

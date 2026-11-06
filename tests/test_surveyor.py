@@ -5,7 +5,8 @@ import pytest
 from sqlmodel import select
 
 from app.models import Survey, utcnow
-from app.security import RateLimiter, create_limiter
+from app.rate_limit import create_limiter
+from app.security import RateLimiter
 from app.services.questions import load_questions
 from app.templating import format_kst_date, format_won
 

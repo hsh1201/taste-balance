@@ -6,7 +6,8 @@ import pytest
 from sqlmodel import select
 
 from app.models import Response, Survey, utcnow
-from app.security import DONE_COOKIE, submit_limiter
+from app.rate_limit import submit_limiter
+from app.security import DONE_COOKIE
 from app.services.persona import load_personas
 from app.services.questions import pick_question_ids
 

@@ -1,6 +1,6 @@
 from datetime import UTC, datetime, timedelta
 
-from sqlalchemy import JSON, Column, ForeignKey, Integer
+from sqlalchemy import JSON, BigInteger, Column, ForeignKey, Integer
 from sqlmodel import Field, SQLModel
 
 from app.security import generate_admin_token, generate_slug
@@ -59,3 +59,10 @@ class AiComment(SQLModel, table=True):
     picks: list[dict] = Field(sa_column=Column(JSON, nullable=False))
     model: str
     created_at: datetime = Field(default_factory=utcnow)
+
+
+class RateLimitHit(SQLModel, table=True):
+    # 서버리스에서는 인스턴스가 메모리를 공유하지 않아 요청 횟수를 DB에 모은다.
+    bucket: str = Field(primary_key=True, max_length=80)
+    window_start: int = Field(sa_column=Column(BigInteger, primary_key=True, autoincrement=False))
+    hits: int = Field(default=1)

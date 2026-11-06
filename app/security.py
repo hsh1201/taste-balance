@@ -1,5 +1,6 @@
 import hashlib
 import hmac
+import os
 import secrets
 import string
 import threading
@@ -112,17 +113,24 @@ class RateLimiter:
             self._hits.clear()
 
 
-create_limiter = RateLimiter(limit=20, window_seconds=600)
+# 페이지 조회용 가벼운 제한이다. 서버리스에서는 인스턴스별로 따로 세므로 대략적인 보호만 한다.
+# 쓰기와 비용이 드는 요청은 app/rate_limit.py에서 DB로 센다.
 lookup_limiter = RateLimiter(limit=120, window_seconds=60)
-submit_limiter = RateLimiter(limit=30, window_seconds=600)
-# 호출마다 비용이 들기 때문에 조회보다 훨씬 좁게 잡는다.
-ai_comment_limiter = RateLimiter(limit=20, window_seconds=600)
+
+
+def client_ip(request: Request) -> str:
+    # Vercel은 접속자가 보낸 값을 덮어쓰므로 이 헤더를 믿을 수 있다.
+    # 다른 환경에서는 위조할 수 있어 쓰지 않고, Uvicorn이 믿을 만한 프록시 값만 반영한 주소를 쓴다.
+    if os.environ.get("VERCEL"):
+        forwarded = request.headers.get("x-real-ip") or request.headers.get("x-forwarded-for", "")
+        if forwarded:
+            return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
 
 
 def rate_limit(limiter: RateLimiter) -> Callable[[Request], None]:
     def dependency(request: Request) -> None:
-        client_ip = request.client.host if request.client else "unknown"
-        if not limiter.allow(client_ip):
+        if not limiter.allow(client_ip(request)):
             raise HTTPException(status_code=429, headers={"Retry-After": str(int(limiter.window_seconds))})
 
     return dependency

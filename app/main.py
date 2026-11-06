@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
 from app.db import init_db
-from app.routers import game, surveyor
+from app.routers import cron, game, surveyor
 from app.templating import templates
 
 CDN = "https://cdn.jsdelivr.net"
@@ -47,6 +47,7 @@ app = FastAPI(title="취향 밸런스", lifespan=lifespan, docs_url=None, redoc_
 app.mount("/static", StaticFiles(directory=Path(__file__).parent / "static"), name="static")
 app.include_router(surveyor.router)
 app.include_router(game.router)
+app.include_router(cron.router)
 
 
 @app.middleware("http")

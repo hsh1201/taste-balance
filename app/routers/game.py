@@ -9,7 +9,8 @@ from sqlmodel import Session, select
 from app.config import settings
 from app.db import get_session
 from app.models import Response, Survey
-from app.security import has_done_cookie, lookup_limiter, rate_limit, set_done_cookie, submit_limiter
+from app.rate_limit import shared_rate_limit, submit_limiter
+from app.security import has_done_cookie, lookup_limiter, rate_limit, set_done_cookie
 from app.services.persona import determine_persona, persona_of
 from app.services.questions import FUN_COUNT, SIGNAL_COUNT, load_questions
 from app.templating import templates
@@ -71,7 +72,7 @@ def game_page(request: Request, slug: str, session: SessionDep) -> HTMLResponse:
     return templates.TemplateResponse(request, "game.html", context)
 
 
-@router.post("/{slug}/submit", dependencies=[Depends(rate_limit(submit_limiter))])
+@router.post("/{slug}/submit", dependencies=[Depends(shared_rate_limit(submit_limiter))])
 def submit_answers(slug: str, body: SubmitIn, session: SessionDep) -> JSONResponse:
     survey = load_survey_by_slug(session, slug)
     submitted = {answer.question_id: answer.choice for answer in body.answers}

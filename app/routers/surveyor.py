@@ -7,9 +7,8 @@ from sqlmodel import Session, select
 from app.config import settings
 from app.db import get_session
 from app.models import BUDGET_MAX, BUDGET_MIN, OCCASIONS, RECIPIENT_NAME_MAX_LENGTH, RELATIONS, Response, Survey
+from app.rate_limit import ai_comment_limiter, create_limiter, shared_rate_limit
 from app.security import (
-    ai_comment_limiter,
-    create_limiter,
     csrf_nonce,
     csrf_token_for,
     is_valid_csrf,
@@ -112,7 +111,7 @@ def new_survey_form(request: Request) -> HTMLResponse:
     return render_form(request, DEFAULT_FORM_VALUES)
 
 
-@router.post("/new", response_model=None, dependencies=[Depends(rate_limit(create_limiter))])
+@router.post("/new", response_model=None, dependencies=[Depends(shared_rate_limit(create_limiter))])
 def create_survey(
     request: Request,
     session: SessionDep,
@@ -182,7 +181,7 @@ def survey_result(request: Request, admin_token: str, session: SessionDep) -> HT
 
 
 @router.post(
-    "/r/{admin_token}/ai-comment", response_model=None, dependencies=[Depends(rate_limit(ai_comment_limiter))]
+    "/r/{admin_token}/ai-comment", response_model=None, dependencies=[Depends(shared_rate_limit(ai_comment_limiter))]
 )
 def survey_ai_comment(request: Request, admin_token: str, session: SessionDep) -> HTMLResponse | PlainTextResponse:
     """코멘트 조각을 돌려준다. 보여줄 코멘트가 없으면 204로 답하고 화면은 그 섹션을 숨긴다."""
