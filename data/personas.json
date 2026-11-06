@@ -1,0 +1,66 @@
+{
+  "emotional_object_solo": {
+    "name": "감성 수집가",
+    "emoji": "🧸",
+    "theme": "collector",
+    "tagline": "좋아하는 것들로 나만의 세계를 채우는 사람",
+    "description": "마음이 가는 물건에는 다 이유가 있어요. 작은 소품 하나에도 이야기를 담아 두고두고 아끼는 타입이에요.",
+    "traits": ["소품 덕후", "추억 보관함", "확고한 취향"]
+  },
+  "emotional_object_together": {
+    "name": "취향 전도사",
+    "emoji": "💝",
+    "theme": "curator",
+    "tagline": "내가 좋아하는 건 꼭 주변에 영업하는 사람",
+    "description": "좋은 걸 발견하면 혼자 알고 있기 아까워요. 친구들 집마다 내가 추천한 물건이 하나씩은 있는 타입이에요.",
+    "traits": ["영업왕", "이거 써봐", "감성 공유"]
+  },
+  "emotional_experience_solo": {
+    "name": "낭만 여행자",
+    "emoji": "🌅",
+    "theme": "explorer",
+    "tagline": "낯선 풍경에 마음이 먼저 움직이는 사람",
+    "description": "계획표보다 그날의 공기를 믿어요. 혼자 떠난 길 위에서 사진보다 오래 남는 장면을 가져오는 타입이에요.",
+    "traits": ["즉흥 여행", "노을 맛집", "혼자도 좋아"]
+  },
+  "emotional_experience_together": {
+    "name": "추억 제조기",
+    "emoji": "🎉",
+    "theme": "social",
+    "tagline": "함께한 순간을 오래 남을 장면으로 만드는 사람",
+    "description": "같이 웃은 기억이 제일 큰 재산이에요. 평범한 날도 모두가 두고두고 얘기할 하루로 만드는 분위기 메이커예요.",
+    "traits": ["분위기 메이커", "기념일 챙김", "같이의 가치"]
+  },
+  "practical_object_solo": {
+    "name": "가성비 장인",
+    "emoji": "🧰",
+    "theme": "homebody",
+    "tagline": "후기 정독은 기본, 한번 들인 건 끝까지 쓰는 사람",
+    "description": "살 때는 꼼꼼히 비교하고, 고른 물건은 오래오래 잘 써요. 내 생활에 꼭 맞는 것만 남기는 안목이 있는 타입이에요.",
+    "traits": ["후기 정독", "비교 분석", "오래 쓰기"]
+  },
+  "practical_object_together": {
+    "name": "모임 해결사",
+    "emoji": "🎒",
+    "theme": "homebody",
+    "tagline": "누가 뭐 없냐고 하면 제일 먼저 꺼내 주는 사람",
+    "description": "가방 속에는 없는 게 없어요. 필요한 순간에 '나 그거 있어'를 말하며 모두를 챙기는 든든한 타입이에요.",
+    "traits": ["준비성 만렙", "나 그거 있어", "든든함"]
+  },
+  "practical_experience_solo": {
+    "name": "실용 탐험가",
+    "emoji": "🧭",
+    "theme": "explorer",
+    "tagline": "준비는 철저하게, 떠날 땐 가볍게",
+    "description": "새로운 걸 해보는 게 제일 즐겁지만 동선과 짐은 완벽해요. 몸으로 부딪히며 쌓은 꿀팁이 가득한 타입이에요.",
+    "traits": ["동선 장인", "경험 우선", "꿀팁 부자"]
+  },
+  "practical_experience_together": {
+    "name": "약속 대장",
+    "emoji": "📣",
+    "theme": "social",
+    "tagline": "맛집 예약부터 동선까지 척척 짜는 사람",
+    "description": "모이자는 말은 누구나 하지만 진짜 날짜를 잡는 건 이 사람이에요. 모두가 편한 코스를 뚝딱 만들어 내는 믿음직한 타입이에요.",
+    "traits": ["총대장", "예약 성공", "일정 정리"]
+  }
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} · 취향 밸런스{% endblock %}
+{% block content %}
+<main class="page status-page">
+  <div class="status-emoji" aria-hidden="true">🙈</div>
+  <h1 class="page-title">{{ title }}</h1>
+  <p class="page-lead">{{ message }}</p>
+  {% if offer_new_survey %}<a class="btn btn-secondary" href="/new">새로 만들기</a>{% endif %}
+</main>
+{% endblock %}

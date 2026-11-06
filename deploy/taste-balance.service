@@ -1,0 +1,21 @@
+[Unit]
+Description=Taste Balance web app
+After=network.target
+
+[Service]
+User=tastebalance
+Group=tastebalance
+WorkingDirectory=/opt/taste-balance
+# rate limit 기록이 프로세스 메모리에 있어 워커는 1개만 쓴다.
+# 접속 로그에는 비밀 결과 링크가 그대로 찍히므로 끈다.
+ExecStart=/opt/taste-balance/venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 1 --no-access-log --no-server-header --forwarded-allow-ips 127.0.0.1
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/taste-balance
+
+[Install]
+WantedBy=multi-user.target

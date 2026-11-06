@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ survey.recipient_name }}님의 취향 밸런스 게임{% endblock %}
+{% block meta %}{% include "_game_meta.html" %}{% endblock %}
+{% block content %}
+<div class="game" id="game" data-slug="{{ survey.slug }}">
+  <section class="screen intro" data-screen="intro">
+    <p class="eyebrow">이거 vs 저거</p>
+    <h1 class="hero-title">{{ survey.recipient_name }}님의<br>취향 밸런스 게임</h1>
+    <div class="versus" aria-hidden="true">
+      <div class="versus-card is-left"><span class="versus-emoji">☀️</span>평생 여름</div>
+      <span class="versus-badge">VS</span>
+      <div class="versus-card is-right"><span class="versus-emoji">❄️</span>평생 겨울</div>
+    </div>
+    <p class="intro-lead">{{ questions | length }}번만 고르면 나의 취향 유형이 나와요!</p>
+    <button class="btn btn-primary" type="button" data-action="start">시작</button>
+    <noscript><p class="fine-print">게임을 하려면 자바스크립트를 켜 주세요.</p></noscript>
+  </section>
+
+  <section class="screen play" data-screen="play" hidden>
+    <header class="play-top">
+      <button class="btn-back" type="button" data-action="back">← 이전</button>
+      <span class="play-count"><strong data-count>1</strong> / {{ questions | length }}</span>
+    </header>
+    <div class="progress" role="progressbar" aria-label="진행도" aria-valuemin="0" aria-valuemax="{{ questions | length }}" aria-valuenow="0" data-progress>
+      <div class="progress-fill"></div>
+    </div>
+    <h2 class="question" data-question aria-live="polite"></h2>
+    <div class="stage" data-stage>
+      <button class="choice is-left" type="button" data-choice="0">
+        <span class="choice-emoji" aria-hidden="true"></span>
+        <span class="choice-label"></span>
+      </button>
+      <span class="versus-badge" aria-hidden="true">VS</span>
+      <button class="choice is-right" type="button" data-choice="1">
+        <span class="choice-emoji" aria-hidden="true"></span>
+        <span class="choice-label"></span>
+      </button>
+    </div>
+    <p class="swipe-hint" data-hint>탭하거나, 고르는 쪽으로 밀어 보세요</p>
+  </section>
+
+  <section class="screen waiting" data-screen="waiting" hidden>
+    <div class="status-emoji" aria-hidden="true">🔮</div>
+    <h2 class="page-title">결과를 살펴보는 중…</h2>
+  </section>
+
+  <section class="screen waiting" data-screen="error" hidden>
+    <div class="status-emoji" aria-hidden="true">🙈</div>
+    <h2 class="page-title">앗, 전송하지 못했어요</h2>
+    <p class="page-lead">고른 답은 그대로 있어요. 인터넷 연결을 확인하고 다시 눌러 주세요.</p>
+    <button class="btn btn-primary" type="button" data-action="retry">다시 시도</button>
+  </section>
+</div>
+<script type="application/json" id="game-data">{{ questions | tojson }}</script>
+{% endblock %}
+{% block scripts %}
+  <script src="/static/js/game.js" defer></script>
+{% endblock %}

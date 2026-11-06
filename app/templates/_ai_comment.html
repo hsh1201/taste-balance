@@ -1,0 +1,10 @@
+<h2 class="report-heading">AI 선물 코멘트</h2>
+<ul class="ai-list">
+  {% for pick in picks %}
+  <li class="ai-card">
+    <h3 class="ai-gift"><span aria-hidden="true">{{ pick.emoji }}</span> {{ pick.name }}</h3>
+    <p class="ai-text">{{ pick.comment }}</p>
+  </li>
+  {% endfor %}
+</ul>
+<p class="ai-note">AI가 쓴 코멘트라 실제와 다를 수 있어요.</p>

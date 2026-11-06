@@ -1,0 +1,32 @@
+{% extends "surveyor_base.html" %}
+{% block title %}링크가 준비됐어요 · 취향 밸런스{% endblock %}
+{% block content %}
+<main class="page">
+  <h1 class="page-title">링크가 준비됐어요 🎉</h1>
+  <p class="page-lead">링크는 두 개예요. 하나는 {{ survey.recipient_name }}님에게, 하나는 나만 간직하세요.</p>
+
+  <section class="link-card">
+    <h2 class="link-title">🎮 {{ survey.recipient_name }}님에게 보낼 링크</h2>
+    <p class="link-desc">열어 보면 그냥 재미있는 밸런스 게임이에요. 선물 얘기는 나오지 않아요.</p>
+    <div class="link-row">
+      <input class="link-input" type="text" readonly value="{{ share_url }}" aria-label="공유 링크">
+      <button class="btn btn-small" type="button" data-copy="{{ share_url }}">복사</button>
+    </div>
+  </section>
+
+  <section class="link-card is-secret">
+    <h2 class="link-title">🔒 나만 볼 결과 링크</h2>
+    <p class="link-warning">이 링크는 꼭 저장하세요!</p>
+    <p class="link-desc">가입이 없어서 잃어버리면 다시 찾을 수 없어요. 다른 사람에게 보내면 결과를 볼 수 있으니 주의하세요.</p>
+    <div class="link-row">
+      <input class="link-input" type="text" readonly value="{{ result_url }}" aria-label="결과 링크">
+      <button class="btn btn-small" type="button" data-copy="{{ result_url }}">복사</button>
+    </div>
+  </section>
+
+  <a class="btn btn-secondary" href="/r/{{ survey.admin_token }}">결과 페이지로 가기</a>
+</main>
+{% endblock %}
+{% block scripts %}
+  <script src="/static/js/copy.js" defer></script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ survey.recipient_name }}님의 취향 밸런스 게임{% endblock %}
+{% block meta %}{% include "_game_meta.html" %}{% endblock %}
+{% block content %}
+<main class="page status-page">
+  <div class="status-emoji" aria-hidden="true">🎮</div>
+  <h1 class="page-title">이미 완료한 게임이에요</h1>
+  <p class="page-lead">이 게임은 한 번만 할 수 있어요. 함께해 주셔서 고마워요!</p>
+  {% if has_own_result %}<a class="btn btn-secondary" href="/g/{{ survey.slug }}/result">내 결과 다시 보기</a>{% endif %}
+  {% include "_game_notice.html" %}
+</main>
+{% endblock %}

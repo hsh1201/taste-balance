@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ survey.recipient_name }}님의 결과 · 취향 밸런스{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="/static/css/result.css">
+{% endblock %}
+{% block content %}
+<main class="page report">
+  <header class="gift-box theme-{{ persona.theme }}">
+    <span class="gift-bow" aria-hidden="true">🎀</span>
+    <div class="gift-tag">
+      <div class="gift-persona-emoji" aria-hidden="true">{{ persona.emoji }}</div>
+      <h1 class="gift-persona-name">{{ survey.recipient_name }}님은<br><strong>{{ persona.name }}형!</strong></h1>
+      <p class="gift-tagline">{{ persona.tagline }}</p>
+      <p class="gift-description">{{ persona.description }}</p>
+      <ul class="gift-context">
+        <li>{{ survey.relation }}</li>
+        <li>{{ survey.occasion }}</li>
+        <li>{{ survey.budget_min | won_range(survey.budget_max) }}</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="report-section">
+    <h2 class="report-heading">한눈에 보는 취향</h2>
+    <div class="panel">
+      <div class="radar-wrap" data-radar hidden>
+        <canvas id="radar-chart" role="img"
+                aria-label="취향 레이더 차트. {% for axis in report.radar %}{{ axis.lean_label }} {{ axis.lean_value }}퍼센트{% if not loop.last %}, {% endif %}{% endfor %}"></canvas>
+      </div>
+      <ul class="axis-list">
+        {% for axis in report.radar %}
+        <li class="axis-row">
+          <span class="axis-pole{% if axis.value < 50 %} is-strong{% endif %}">{{ axis.left }}</span>
+          <svg class="axis-track" width="100%" height="20" aria-hidden="true">
+            <line class="axis-line" x1="0" y1="10" x2="100%" y2="10"></line>
+            <line class="axis-center" x1="50%" y1="4" x2="50%" y2="16"></line>
+            <circle class="axis-dot" cx="{{ axis.value }}%" cy="10" r="8"></circle>
+          </svg>
+          <span class="axis-pole is-right{% if axis.value > 50 %} is-strong{% endif %}">{{ axis.right }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if report.keywords %}
+      <ul class="keyword-list">
+        {% for keyword in report.keywords %}<li>#{{ keyword }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+
+  {% if ai_picks %}
+  <section class="report-section ai-section">
+    {% with picks = ai_picks %}{% include "_ai_comment.html" %}{% endwith %}
+  </section>
+  {% elif ai_pending %}
+  <section class="report-section ai-section" data-ai-comment-url="/r/{{ survey.admin_token }}/ai-comment" hidden>
+    <p class="ai-loading" role="status">AI가 선물 코멘트를 쓰고 있어요…</p>
+  </section>
+  {% endif %}
+
+  <section class="report-section">
+    <h2 class="report-heading">이런 선물은 어때요?</h2>
+    <ol class="gift-list">
+      {% for card in report.recommendations %}
+      <li class="gift-card">
+        {% if loop.first %}<span class="gift-best">가장 잘 맞아요</span>{% endif %}
+        <div class="gift-card-head">
+          <span class="gift-wrap" aria-hidden="true"><span>{{ card.emoji }}</span></span>
+          <div>
+            <h3 class="gift-name">{{ card.name }}</h3>
+            <p class="gift-meta">{{ card.category_label }} · {{ card.price_min | won_range(card.price_max) }}</p>
+          </div>
+        </div>
+        <p class="gift-reason">{{ card.reason }}</p>
+        <a class="btn btn-secondary shop-btn" href="{{ card.shopping_url }}" target="_blank" rel="noopener noreferrer"
+           aria-label="{{ card.name }} 쇼핑 검색 (새 창)">🔍 쇼핑 검색</a>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-heading">이건 피하세요</h2>
+    <ul class="avoid-list">
+      {% for item in report.avoid %}
+      <li class="avoid-card">
+        <h3 class="avoid-label"><span aria-hidden="true">🙅</span> {{ item.label }}</h3>
+        <p class="avoid-reason">{{ item.reason }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <p class="fine-print">
+    가격대는 참고용이에요. 정확한 가격은 쇼핑 검색에서 확인해 주세요.<br>
+    이 페이지는 {{ survey.expires_at | kst_date }}까지 볼 수 있어요.
+  </p>
+</main>
+<script type="application/json" id="radar-data">{{ report.radar | tojson }}</script>
+{% endblock %}
+{% block scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js"
+          integrity="sha384-Emf5ZVIUiarAdhkgtqK+5/Z5qIvM6QoVrS+qAVtfyZVuD5lIHrac0me485+Antp0"
+          crossorigin="anonymous" defer></script>
+  <script src="/static/js/report.js" defer></script>
+  {% if ai_pending %}<script src="/static/js/ai-comment.js" defer></script>{% endif %}
+{% endblock %}

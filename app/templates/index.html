@@ -1,0 +1,24 @@
+{% extends "surveyor_base.html" %}
+{% block meta %}
+  <meta name="description" content="이거 vs 저거 게임 링크 하나로 그 사람의 취향과 어울리는 선물 후보를 찾아보세요.">
+{% endblock %}
+{% block content %}
+<main class="page home">
+  <p class="eyebrow">가입 없이 링크 하나로</p>
+  <h1 class="hero-title">뭘 좋아할지 모르겠다면,<br>게임으로 물어보세요</h1>
+
+  <div class="versus" aria-hidden="true">
+    <div class="versus-card is-left"><span class="versus-emoji">🏕️</span>캠핑</div>
+    <span class="versus-badge">VS</span>
+    <div class="versus-card is-right"><span class="versus-emoji">🕯️</span>캔들</div>
+  </div>
+
+  <ol class="steps">
+    <li><strong>게임 링크 보내기</strong><span>예산만 정하면 링크가 바로 나와요</span></li>
+    <li><strong>그 사람은 게임만</strong><span>이거 vs 저거, 15번 고르면 끝</span></li>
+    <li><strong>선물 후보 도착</strong><span>취향과 예산에 맞는 후보 8개를 골라드려요</span></li>
+  </ol>
+
+  <a class="btn btn-primary" href="/new">선물 조사 시작</a>
+</main>
+{% endblock %}

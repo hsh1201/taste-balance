@@ -1,0 +1,416 @@
+.report {
+  display: grid;
+  /* 1fr만 쓰면 캔버스 기본 너비(300px)가 칸을 밀어내 360px 이하 화면에서 가로로 넘친다. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  padding-top: 52px;
+}
+
+.report-heading {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.panel {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+/* 포장된 선물 상자 */
+.gift-box {
+  position: relative;
+  padding: 36px 22px;
+  border-radius: var(--radius-lg);
+  background-color: var(--persona-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.85) 3px, transparent 3.5px);
+  background-size: 20px 20px;
+  box-shadow: var(--shadow);
+  animation: pick-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.gift-box::before,
+.gift-box::after {
+  content: "";
+  position: absolute;
+  background: var(--primary);
+}
+
+.gift-box::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 26px;
+  box-shadow: inset 3px 0 0 rgba(255, 255, 255, 0.35), inset -3px 0 0 rgba(255, 255, 255, 0.35);
+  transform: translateX(-50%);
+}
+
+.gift-box::after {
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 26px;
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.35), inset 0 -3px 0 rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%);
+}
+
+.gift-bow {
+  position: absolute;
+  z-index: 2;
+  top: -32px;
+  left: 50%;
+  font-size: 60px;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.gift-tag {
+  position: relative;
+  z-index: 1;
+  padding: 28px 18px 22px;
+  border-radius: 20px;
+  background: var(--card);
+  text-align: center;
+}
+
+.gift-persona-emoji {
+  font-size: 64px;
+  line-height: 1.1;
+}
+
+.gift-persona-name {
+  margin: 8px 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.gift-persona-name strong {
+  color: var(--persona-accent);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.gift-tagline {
+  margin: 0 0 8px;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.gift-description {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.gift-context {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gift-context li {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--persona-bg);
+  color: var(--persona-accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 취향 차트 */
+.radar-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1;
+  /* 없으면 캔버스 초기 높이(300px)가 최소 높이가 되어 좁은 화면에서 정사각형이 되지 않는다. */
+  min-height: 0;
+  margin: 0 auto 16px;
+}
+
+.radar-wrap[hidden] {
+  display: none;
+}
+
+.axis-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.axis-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 14px;
+}
+
+.axis-pole {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.axis-pole.is-right {
+  text-align: right;
+}
+
+.axis-pole.is-strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.axis-track {
+  display: block;
+  overflow: visible;
+}
+
+.axis-line {
+  stroke: var(--line);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.axis-center {
+  stroke: var(--ink-soft);
+  stroke-width: 2;
+}
+
+.axis-dot {
+  fill: var(--primary);
+  stroke: var(--card);
+  stroke-width: 3;
+}
+
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keyword-list li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--sunny-soft);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* AI 선물 코멘트 */
+.ai-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-card {
+  padding: 16px 18px;
+  border-left: 6px solid var(--sunny);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.ai-gift {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.ai-text {
+  margin: 0;
+  font-size: 15px;
+}
+
+.ai-note {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.ai-loading {
+  margin: 0;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: var(--sunny-soft);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 추천 선물 */
+.gift-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gift-card {
+  --wrap: var(--coral-soft);
+  --wrap-ribbon: rgba(230, 62, 102, 0.55);
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  animation: card-in 0.35s ease-out both;
+}
+
+.gift-card:nth-child(4n + 2) {
+  --wrap: var(--mint-soft);
+  --wrap-ribbon: rgba(23, 128, 108, 0.45);
+}
+
+.gift-card:nth-child(4n + 3) {
+  --wrap: var(--sunny-soft);
+  --wrap-ribbon: rgba(255, 170, 0, 0.6);
+}
+
+.gift-card:nth-child(4n + 4) {
+  --wrap: #e8e4ff;
+  --wrap-ribbon: rgba(91, 69, 199, 0.45);
+}
+
+.gift-best {
+  justify-self: start;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gift-card-head {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.gift-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--wrap);
+  font-size: 32px;
+  line-height: 1;
+}
+
+.gift-wrap::before,
+.gift-wrap::after {
+  content: "";
+  position: absolute;
+  background: var(--wrap-ribbon);
+}
+
+.gift-wrap::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 10px;
+  transform: translateX(-50%);
+}
+
+.gift-wrap::after {
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 10px;
+  transform: translateY(-50%);
+}
+
+.gift-wrap span {
+  position: relative;
+  z-index: 1;
+}
+
+.gift-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.gift-meta {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.gift-reason {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--bg);
+  font-size: 15px;
+}
+
+.shop-btn {
+  min-height: var(--touch);
+  margin-bottom: 3px;
+  font-size: 16px;
+  box-shadow: inset 0 0 0 2px var(--ink), 0 3px 0 var(--ink);
+}
+
+.shop-btn:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 0 0 2px var(--ink), 0 1px 0 var(--ink);
+}
+
+/* 이건 피하세요 */
+.avoid-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avoid-card {
+  padding: 16px 18px;
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius-md);
+  background: var(--coral-soft);
+}
+
+.avoid-label {
+  margin: 0 0 4px;
+  color: var(--primary-deep);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.avoid-reason {
+  margin: 0;
+  font-size: 15px;
+}
+
+.report .fine-print {
+  margin-top: 0;
+}

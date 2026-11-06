@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ persona.name }}형 · 취향 밸런스 게임{% endblock %}
+{% block content %}
+<main class="page result">
+  <article class="persona-card theme-{{ persona.theme }}" data-persona-card
+           data-name="{{ persona.name }}" data-emoji="{{ persona.emoji }}"
+           data-tagline="{{ persona.tagline }}" data-traits='{{ persona.traits | tojson }}'>
+    <div class="persona-emoji" aria-hidden="true">{{ persona.emoji }}</div>
+    <p class="persona-kicker">당신은</p>
+    <h1 class="persona-name">{{ persona.name }}형!</h1>
+    <p class="persona-tagline">{{ persona.tagline }}</p>
+    <p class="persona-description">{{ persona.description }}</p>
+    <ul class="persona-traits">
+      {% for trait in persona.traits %}<li>#{{ trait }}</li>{% endfor %}
+    </ul>
+  </article>
+
+  <div class="result-actions">
+    <button class="btn btn-primary" type="button" data-action="save-image">이미지로 저장</button>
+    <button class="btn btn-secondary" type="button" data-action="share-image" hidden>공유하기</button>
+  </div>
+
+  <figure class="image-preview" data-image-preview hidden>
+    <img alt="{{ persona.name }}형 결과 카드">
+    <figcaption>저장되지 않았다면 이미지를 길게 눌러 저장해 보세요.</figcaption>
+  </figure>
+
+  {% include "_game_notice.html" %}
+</main>
+{% endblock %}
+{% block scripts %}
+  <script src="/static/js/card.js" defer></script>
+{% endblock %}

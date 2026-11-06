@@ -1,0 +1,28 @@
+{% extends "surveyor_base.html" %}
+{% block title %}아직 응답 전이에요 · 취향 밸런스{% endblock %}
+{% block content %}
+<main class="page status-page">
+  <div class="status-emoji" aria-hidden="true">🎁</div>
+  <h1 class="page-title">아직 응답 전이에요</h1>
+  <p class="page-lead">{{ survey.recipient_name }}님이 게임을 끝내면 이 페이지에서 결과를 볼 수 있어요.</p>
+
+  <dl class="summary">
+    <div><dt>관계</dt><dd>{{ survey.relation }}</dd></div>
+    <div><dt>상황</dt><dd>{{ survey.occasion }}</dd></div>
+    <div><dt>예산</dt><dd>{{ survey.budget_min | won }} ~ {{ survey.budget_max | won }}</dd></div>
+    <div><dt>보관 기한</dt><dd>{{ survey.expires_at | kst_date }}</dd></div>
+  </dl>
+
+  <section class="link-card">
+    <h2 class="link-title">🎮 {{ survey.recipient_name }}님에게 보낼 링크</h2>
+    <p class="link-desc">아직 안 보냈다면 지금 보내 보세요.</p>
+    <div class="link-row">
+      <input class="link-input" type="text" readonly value="{{ share_url }}" aria-label="공유 링크">
+      <button class="btn btn-small" type="button" data-copy="{{ share_url }}">복사</button>
+    </div>
+  </section>
+</main>
+{% endblock %}
+{% block scripts %}
+  <script src="/static/js/copy.js" defer></script>
+{% endblock %}

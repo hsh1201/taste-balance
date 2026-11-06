@@ -1,0 +1,163 @@
+[
+  {"id": "q01", "kind": "signal", "text": "3일 연휴, 여행은 딱 한 번. 어디로 갈까?", "choices": [
+    {"label": "캠핑", "emoji": "🏕️", "tags": {"outdoor": 2, "camping": 2, "hobby": 1, "experience": 1}},
+    {"label": "호캉스", "emoji": "🏨", "tags": {"home": 1, "emotional": 1}}
+  ]},
+  {"id": "q02", "kind": "signal", "text": "좋은 향이 딱 한 군데서만 난다면?", "choices": [
+    {"label": "내 몸에서 나는 향수", "emoji": "🌸", "tags": {"perfume": 2, "trendy": 1, "object": 1}},
+    {"label": "내 방에 퍼지는 캔들", "emoji": "🕯️", "tags": {"candle": 2, "home": 1, "emotional": 1}}
+  ]},
+  {"id": "q03", "kind": "signal", "text": "둘 중 하나는 평생 끊어야 한다. 남길 쪽은?", "choices": [
+    {"label": "달달한 디저트", "emoji": "🍰", "tags": {"dessert": 2, "object": 1}},
+    {"label": "아이스 아메리카노", "emoji": "🧋", "tags": {"coffee": 2, "minimal": 1}}
+  ]},
+  {"id": "q04", "kind": "signal", "text": "금요일 밤인데 내일 아침 일찍 약속이 있다면?", "choices": [
+    {"label": "그래도 딱 한 잔만", "emoji": "🍶", "tags": {"alcohol": 2, "together": 1}},
+    {"label": "따뜻한 차로 참기", "emoji": "🍵", "tags": {"tea": 2, "home": 1, "minimal": 1}}
+  ]},
+  {"id": "q05", "kind": "signal", "text": "갑자기 100만 원이 생겼다! 딱 하나만 산다면?", "choices": [
+    {"label": "최신 폰으로 바꾸기", "emoji": "📱", "tags": {"tech": 2, "trendy": 1, "object": 1}},
+    {"label": "오래 꿈꾼 가방", "emoji": "👜", "tags": {"fashion": 2, "emotional": 1}}
+  ]},
+  {"id": "q06", "kind": "signal", "text": "오늘 진짜 힘들었다. 나를 위한 보상은?", "choices": [
+    {"label": "마스크팩에 반신욕", "emoji": "🛁", "tags": {"beauty": 2, "home": 1, "solo": 1}},
+    {"label": "치킨에 맥주 한 캔", "emoji": "🍗", "tags": {"food": 2, "alcohol": 1, "together": 1}}
+  ]},
+  {"id": "q07", "kind": "signal", "text": "평생 살 내 방, 어느 쪽이 더 좋아?", "choices": [
+    {"label": "호텔처럼 깔끔한 방", "emoji": "🤍", "tags": {"minimal": 2, "practical": 1}},
+    {"label": "좋아하는 걸로 꽉 찬 방", "emoji": "🧸", "tags": {"maximal": 2, "interior": 1, "object": 1, "emotional": 1}}
+  ]},
+  {"id": "q08", "kind": "signal", "text": "올해의 계획과 기록, 어디에 남길까?", "choices": [
+    {"label": "손글씨 다이어리", "emoji": "📔", "tags": {"stationery": 2, "emotional": 1, "classic": 1}},
+    {"label": "아이패드 필기 앱", "emoji": "📲", "tags": {"tech": 1, "practical": 1, "minimal": 1}}
+  ]},
+  {"id": "q09", "kind": "signal", "text": "아무 약속 없는 토요일, 뭐 할까?", "choices": [
+    {"label": "침대에서 정주행", "emoji": "🛋️", "tags": {"home": 2, "solo": 1, "interior": 1}},
+    {"label": "웨이팅 맛집 도장깨기", "emoji": "🍜", "tags": {"outdoor": 2, "food": 1, "experience": 1}}
+  ]},
+  {"id": "q10", "kind": "signal", "text": "벼르던 해외여행, 어떻게 갈까?", "choices": [
+    {"label": "혼자 내 맘대로", "emoji": "🎒", "tags": {"solo": 2}},
+    {"label": "친구랑 경비 반값", "emoji": "🧳", "tags": {"together": 2}}
+  ]},
+  {"id": "q11", "kind": "signal", "text": "50만 원이 생겼다. 어디에 쓸까?", "choices": [
+    {"label": "사흘 떠나는 여행", "emoji": "✈️", "tags": {"experience": 2, "emotional": 1, "outdoor": 1}},
+    {"label": "3년 쓸 물건", "emoji": "🧰", "tags": {"object": 2, "practical": 1}}
+  ]},
+  {"id": "q12", "kind": "signal", "text": "같은 15만 원이라면?", "choices": [
+    {"label": "콘서트 스탠딩 티켓", "emoji": "🎤", "tags": {"music": 2, "together": 2, "experience": 2, "outdoor": 1}},
+    {"label": "노이즈캔슬링 이어폰", "emoji": "🎧", "tags": {"music": 1, "solo": 2, "object": 2, "hobby": 1}}
+  ]},
+  {"id": "q13", "kind": "signal", "text": "새벽 1시, 내일 출근인데 손에 든 건?", "choices": [
+    {"label": "책 한 챕터만 더", "emoji": "📚", "tags": {"book": 2, "solo": 1, "classic": 1}},
+    {"label": "게임 한 판만 더", "emoji": "🎮", "tags": {"game": 2, "trendy": 1}}
+  ]},
+  {"id": "q14", "kind": "signal", "text": "주말 오후 2시, 몸이 찌뿌둥하다. 뭐가 더 풀릴까?", "choices": [
+    {"label": "땀 쫙 빼는 운동", "emoji": "🏃", "tags": {"sports": 2, "hobby": 1, "outdoor": 1, "experience": 1}},
+    {"label": "완벽한 낮잠", "emoji": "😴", "tags": {"home": 2, "interior": 1}}
+  ]},
+  {"id": "q15", "kind": "signal", "text": "같은 30만 원으로 옷을 산다면?", "choices": [
+    {"label": "이번 시즌 유행템 세 벌", "emoji": "✨", "tags": {"trendy": 2, "fashion": 2, "maximal": 1}},
+    {"label": "10년 입을 코트 한 벌", "emoji": "🧥", "tags": {"classic": 2, "fashion": 1, "object": 1, "minimal": 1}}
+  ]},
+  {"id": "q16", "kind": "signal", "text": "정말 고마운 사람에게 마음을 전한다면?", "choices": [
+    {"label": "정성 담은 손편지", "emoji": "✉️", "tags": {"stationery": 2, "emotional": 1, "classic": 1}},
+    {"label": "진심 담은 장문 카톡", "emoji": "💬", "tags": {"tech": 1, "practical": 1, "trendy": 1}}
+  ]},
+  {"id": "q17", "kind": "signal", "text": "인생 여행 사진, 하나만 남길 수 있다면?", "choices": [
+    {"label": "필름 카메라 한 롤", "emoji": "📷", "tags": {"emotional": 1, "classic": 1, "hobby": 1, "experience": 1}},
+    {"label": "최신 폰 고화질", "emoji": "🤳", "tags": {"tech": 2, "trendy": 1, "practical": 1, "object": 1}}
+  ]},
+  {"id": "q18", "kind": "signal", "text": "자취방에 30만 원을 쓴다면?", "choices": [
+    {"label": "분위기 살리는 조명", "emoji": "💡", "tags": {"interior": 2, "emotional": 1}},
+    {"label": "일 덜어주는 로봇청소기", "emoji": "🤖", "tags": {"tech": 2, "practical": 1, "object": 1}}
+  ]},
+  {"id": "q19", "kind": "signal", "text": "집 문을 여는 순간, 더 행복한 쪽은?", "choices": [
+    {"label": "은은하게 퍼진 좋은 향", "emoji": "🌿", "tags": {"scent": 2}},
+    {"label": "잔잔하게 깔린 음악", "emoji": "🎶", "tags": {"music": 2, "hobby": 1}}
+  ]},
+  {"id": "q20", "kind": "signal", "text": "약속 30분 전, 이제 막 눈을 떴다.", "choices": [
+    {"label": "30분 동안 풀메이크업", "emoji": "💄", "tags": {"beauty": 2, "maximal": 1, "trendy": 1}},
+    {"label": "선크림만 바르고 더 자기", "emoji": "🧴", "tags": {"beauty": 1, "minimal": 2, "practical": 1}}
+  ]},
+  {"id": "q21", "kind": "signal", "text": "매일 앉는 내 책상, 어떤 풍경이 좋아?", "choices": [
+    {"label": "귀여운 문구로 가득", "emoji": "🖍️", "tags": {"stationery": 2, "maximal": 2, "object": 1}},
+    {"label": "노트북 하나만 딱", "emoji": "💻", "tags": {"tech": 1, "minimal": 2, "practical": 1}}
+  ]},
+  {"id": "q22", "kind": "signal", "text": "지친 퇴근길, 내 에너지는 어떻게 채울까?", "choices": [
+    {"label": "혼밥하며 조용히 충전", "emoji": "🍚", "tags": {"solo": 2}},
+    {"label": "사람 만나서 수다로 충전", "emoji": "🍻", "tags": {"together": 2}}
+  ]},
+  {"id": "q23", "kind": "signal", "text": "금요일 밤 8시, 갑자기 번개 연락이 왔다.", "choices": [
+    {"label": "모여서 보드게임", "emoji": "🎲", "tags": {"together": 2, "game": 2, "hobby": 1}},
+    {"label": "거절하고 집에서 영화", "emoji": "🎬", "tags": {"solo": 2, "home": 1, "experience": 1}}
+  ]},
+  {"id": "q24", "kind": "signal", "text": "오늘 약속, 스타일링의 마지막 한 끗은?", "choices": [
+    {"label": "반짝이는 액세서리", "emoji": "💍", "tags": {"fashion": 2, "maximal": 1, "trendy": 1}},
+    {"label": "힘 뺀 노 액세서리", "emoji": "🕊️", "tags": {"minimal": 2, "classic": 1}}
+  ]},
+  {"id": "q25", "kind": "signal", "text": "새로운 취미를 시작한다면?", "choices": [
+    {"label": "장비부터 제대로 사기", "emoji": "🛒", "tags": {"object": 2, "practical": 1, "maximal": 1}},
+    {"label": "원데이 클래스부터 듣기", "emoji": "🎨", "tags": {"experience": 2, "hobby": 1, "minimal": 1}}
+  ]},
+  {"id": "q26", "kind": "signal", "text": "넓은 베란다가 생겼다! 뭘 할까?", "choices": [
+    {"label": "초록 식물 키우기", "emoji": "🌱", "tags": {"interior": 2, "object": 1, "home": 1}},
+    {"label": "캠핑 의자 펴고 불멍", "emoji": "⛺", "tags": {"camping": 2, "hobby": 1, "outdoor": 1, "experience": 1}}
+  ]},
+  {"id": "q27", "kind": "signal", "text": "휴가가 딱 하루 남았다. 어떻게 쓸까?", "choices": [
+    {"label": "서핑 같은 액티비티", "emoji": "🏄", "tags": {"sports": 2, "hobby": 1, "outdoor": 2, "experience": 1}},
+    {"label": "스파와 마사지", "emoji": "💆", "tags": {"beauty": 1, "scent": 1, "emotional": 1}}
+  ]},
+  {"id": "q28", "kind": "signal", "text": "제일 좋아하는 앨범, 어떻게 들을까?", "choices": [
+    {"label": "LP로 소장하기", "emoji": "💿", "tags": {"classic": 2, "emotional": 1, "object": 1, "music": 1}},
+    {"label": "스트리밍으로 언제든", "emoji": "📻", "tags": {"trendy": 1, "practical": 1, "tech": 1}}
+  ]},
+
+  {"id": "f01", "kind": "fun", "text": "평생 한 계절로만 산다면?", "choices": [
+    {"label": "평생 여름", "emoji": "☀️", "tags": {"outdoor": 1}},
+    {"label": "평생 겨울", "emoji": "❄️", "tags": {"home": 1}}
+  ]},
+  {"id": "f02", "kind": "fun", "text": "직장을 하나 고른다면?", "choices": [
+    {"label": "월급 300에 칼퇴", "emoji": "🌇", "tags": {}},
+    {"label": "월급 500에 매일 야근", "emoji": "💸", "tags": {}}
+  ]},
+  {"id": "f03", "kind": "fun", "text": "딱 하나가 전 국민에게 공개된다면?", "choices": [
+    {"label": "내 검색 기록", "emoji": "🔍", "tags": {}},
+    {"label": "내 카톡 대화", "emoji": "💬", "tags": {}}
+  ]},
+  {"id": "f04", "kind": "fun", "text": "제주도 3박 4일 공짜 여행, 대신 조건이 있다.", "choices": [
+    {"label": "상사와 단둘이", "emoji": "👔", "tags": {}},
+    {"label": "전 애인과 단둘이", "emoji": "💔", "tags": {}}
+  ]},
+  {"id": "f05", "kind": "fun", "text": "평생 하나를 못 먹게 된다면?", "choices": [
+    {"label": "평생 라면 금지", "emoji": "🍜", "tags": {}},
+    {"label": "평생 치킨 금지", "emoji": "🍗", "tags": {}}
+  ]},
+  {"id": "f06", "kind": "fun", "text": "하루에 1시간이 더 생긴다면 언제가 좋아?", "choices": [
+    {"label": "아침 1시간", "emoji": "🌅", "tags": {"practical": 1}},
+    {"label": "새벽 1시간", "emoji": "🌙", "tags": {"emotional": 1}}
+  ]},
+  {"id": "f07", "kind": "fun", "text": "딱 한 번 시간 여행을 간다면?", "choices": [
+    {"label": "지금 기억 그대로 10년 전으로", "emoji": "⏪", "tags": {"classic": 1}},
+    {"label": "10년 뒤 내 모습 보러", "emoji": "⏩", "tags": {"trendy": 1}}
+  ]},
+  {"id": "f08", "kind": "fun", "text": "평생 안고 살아야 한다면?", "choices": [
+    {"label": "폰 배터리 늘 간당간당", "emoji": "🪫", "tags": {}},
+    {"label": "와이파이 늘 버벅임", "emoji": "📶", "tags": {}}
+  ]},
+  {"id": "f09", "kind": "fun", "text": "매일 출근길, 더 참을 만한 쪽은?", "choices": [
+    {"label": "엘리베이터 없는 20층", "emoji": "🏢", "tags": {}},
+    {"label": "에어컨 없는 만원 버스", "emoji": "🚌", "tags": {}}
+  ]},
+  {"id": "f10", "kind": "fun", "text": "둘 중 하나가 가능해진다면?", "choices": [
+    {"label": "동물과 대화하기", "emoji": "🦜", "tags": {"emotional": 1}},
+    {"label": "모든 외국어 정복", "emoji": "🌏", "tags": {"practical": 1}}
+  ]},
+  {"id": "f11", "kind": "fun", "text": "연애한다면 어느 쪽이 나아?", "choices": [
+    {"label": "하루 종일 연락", "emoji": "📞", "tags": {"together": 1}},
+    {"label": "연락 뜸해도 완벽한 데이트", "emoji": "💐", "tags": {"solo": 1}}
+  ]},
+  {"id": "f12", "kind": "fun", "text": "1억을 줄 테니 한 달만 참으라면?", "choices": [
+    {"label": "스마트폰 없이 살기", "emoji": "📵", "tags": {"minimal": 1}},
+    {"label": "집 밖에 안 나가기", "emoji": "🏠", "tags": {"home": 1}}
+  ]}
+]

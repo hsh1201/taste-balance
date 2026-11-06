@@ -1,0 +1,63 @@
+{% extends "surveyor_base.html" %}
+{% block title %}선물 조사 만들기 · 취향 밸런스{% endblock %}
+{% block content %}
+<main class="page">
+  <h1 class="page-title">누구를 위한<br>선물인가요?</h1>
+  {% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
+
+  <form class="survey-form" method="post" action="/new" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+    <label class="field">
+      <span class="field-label">받는 사람 별명</span>
+      <input class="text-input" type="text" name="recipient_name" maxlength="{{ name_max_length }}"
+             required placeholder="예: 민지" value="{{ values.recipient_name }}">
+      <span class="field-hint">게임 제목에 'OO님'으로 보여요. 그 사람이 알아볼 이름으로 적어 주세요.</span>
+    </label>
+
+    <fieldset class="field">
+      <legend class="field-label">어떤 사이인가요?</legend>
+      <div class="chips">
+        {% for relation in relations %}
+        <label class="chip">
+          <input type="radio" name="relation" value="{{ relation }}" required {% if values.relation == relation %}checked{% endif %}>
+          <span>{{ relation }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <fieldset class="field">
+      <legend class="field-label">어떤 날인가요?</legend>
+      <div class="chips">
+        {% for occasion in occasions %}
+        <label class="chip">
+          <input type="radio" name="occasion" value="{{ occasion }}" required {% if values.occasion == occasion %}checked{% endif %}>
+          <span>{{ occasion }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <fieldset class="field">
+      <legend class="field-label">예산은 얼마나 생각하세요?</legend>
+      <output class="budget-output" id="budget-output" for="budget-min budget-max">
+        {{ values.budget_min }} ~ {{ values.budget_max }}
+      </output>
+      <div class="range-slider" data-range-slider>
+        <div class="range-track"><div class="range-fill"></div></div>
+        <input id="budget-min" type="range" name="budget_min" aria-label="최소 예산" min="{{ budget_floor }}"
+               max="{{ budget_ceiling }}" step="10000" value="{{ values.budget_min }}">
+        <input id="budget-max" type="range" name="budget_max" aria-label="최대 예산" min="{{ budget_floor }}"
+               max="{{ budget_ceiling }}" step="10000" value="{{ values.budget_max }}">
+      </div>
+      <div class="range-scale" aria-hidden="true"><span>{{ budget_floor | won }}</span><span>{{ budget_ceiling | won }}</span></div>
+    </fieldset>
+
+    <button class="btn btn-primary" type="submit">게임 링크 만들기</button>
+  </form>
+</main>
+{% endblock %}
+{% block scripts %}
+  <script src="/static/js/form.js" defer></script>
+{% endblock %}

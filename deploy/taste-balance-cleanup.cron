@@ -1,0 +1,2 @@
+# 매일 새벽 4시(서버 시간)에 만료된 설문과 응답을 지운다. 결과는 journalctl -t taste-balance-cleanup 으로 본다.
+0 4 * * * tastebalance /opt/taste-balance/venv/bin/python /opt/taste-balance/scripts/cleanup.py 2>&1 | /usr/bin/systemd-cat -t taste-balance-cleanup
